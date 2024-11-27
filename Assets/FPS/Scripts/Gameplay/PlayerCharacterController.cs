@@ -1,4 +1,5 @@
-﻿using Unity.FPS.Game;
+﻿using System;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -122,6 +123,7 @@ namespace Unity.FPS.Gameplay
         CharacterController m_Controller;
         PlayerWeaponsManager m_WeaponsManager;
         Actor m_Actor;
+        Damageable m_damageable;
         Vector3 m_GroundNormal;
         Vector3 m_CharacterVelocity;
         Vector3 m_LatestImpactSpeed;
@@ -145,6 +147,10 @@ namespace Unity.FPS.Gameplay
             // fetch components on the same gameObject
             m_Controller = GetComponent<CharacterController>();
             DebugUtility.HandleErrorIfNullGetComponent<CharacterController, PlayerCharacterController>(m_Controller,
+                this, gameObject);
+
+            m_damageable= GetComponent<Damageable>();
+            DebugUtility.HandleErrorIfNullGetComponent<Damageable, PlayerCharacterController>(m_damageable,
                 this, gameObject);
 
             m_InputHandler = GetComponent<PlayerInputHandler>();
@@ -270,14 +276,14 @@ namespace Unity.FPS.Gameplay
             {
                 // rotate the transform with the input speed around its local Y axis
                 transform.Rotate(
-                    new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier),
+                    new Vector3(0f, (m_InputHandler.GetLookInputsHorizontal() * RotationSpeed * RotationMultiplier * Time.timeScale),
                         0f), Space.Self);
             }
 
             // vertical camera rotation
             {
                 // add vertical inputs to the camera's vertical angle
-                m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier;
+                m_CameraVerticalAngle += m_InputHandler.GetLookInputsVertical() * RotationSpeed * RotationMultiplier * Time.timeScale;
 
                 // limit the camera's vertical angle to min/max
                 m_CameraVerticalAngle = Mathf.Clamp(m_CameraVerticalAngle, -89f, 89f);
@@ -472,6 +478,29 @@ namespace Unity.FPS.Gameplay
 
             IsCrouching = crouched;
             return true;
+        }
+
+        public void GetPassiveUpgrade(UpgradeData upgradeData)
+        {
+            Item currentItem = upgradeData.item;
+
+            if (currentItem.health != 0)
+            { 
+                m_Health.MaxHealth += currentItem.health;
+            Debug.Log(m_Health.MaxHealth);
+            }
+            if(currentItem.armor!=0)
+            {
+                m_damageable.DamageMultiplier -= currentItem.armor;
+                Debug.Log(m_damageable.DamageMultiplier);
+            }
+            if(currentItem.speed!=0)
+            {
+                MaxSpeedOnGround += currentItem.speed;
+                MaxSpeedInAir += currentItem.speed;
+                Debug.Log(MaxSpeedInAir);
+                Debug.Log(MaxSpeedOnGround);
+            }
         }
     }
 }

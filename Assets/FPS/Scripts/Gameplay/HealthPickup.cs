@@ -7,7 +7,8 @@ namespace Unity.FPS.Gameplay
     {
         [Header("Parameters")] [Tooltip("Amount of health to heal on pickup")]
         public float HealAmount;
-
+      //  [Tooltip("Amount of time (in seconds) before pickups despawn")]
+    //    public float despawnTimer;
         protected override void OnPicked(PlayerCharacterController player)
         {
             Health playerHealth = player.GetComponent<Health>();
@@ -18,6 +19,12 @@ namespace Unity.FPS.Gameplay
                 PlayPickupFeedback();
                 Destroy(gameObject);
             }
+        }
+        protected override void Start()
+        {
+            base.Start();
+            Debug.Log("pickup start");
+       //     StartCoroutine(base.Despawn(despawnTimer));
         }
     }
 }

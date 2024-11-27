@@ -227,7 +227,20 @@ MonoBehaviour:
   PickupSfx: {fileID: 8300000, guid: 179db782f1044bc48b9dff5d487c4bef, type: 3}
   PickupVfxPrefab: {fileID: 133326187904302500, guid: 4d1efaa062e333f4cbc4c3564702d135,
     type: 3}
-  experienceAmount: 10
+  experienceAmount: 75
+--- !u!114 &4052973408323019752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529580269645609534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09df4c6380233d34397a4a7506903302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeTime: 30
 --- !u!1001 &2608178912185414881
 PrefabInstance:
   m_ObjectHideFlags: 0

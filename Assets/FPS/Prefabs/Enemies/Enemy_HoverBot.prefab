@@ -152,11 +152,9 @@ MonoBehaviour:
   DeathVfxSpawnPoint: {fileID: 381893446485871685}
   LootPrefab:
   - {fileID: 2529580269645609534, guid: 9973c412032becb4ca116ca08be62edf, type: 3}
-  - {fileID: 2620131183356007192, guid: 0bb4e7bdf1aec0247854edd179ed1557, type: 3}
   - {fileID: 2529580269645609534, guid: fb0c5fc9b82a3e94e8593c8353a2187f, type: 3}
   DropRate:
   - 0.1
-  - 0.05
   - 1
   PathReachingRangeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   AttackRangeColor: {r: 1, g: 0, b: 0, a: 1}
@@ -472,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectionSourcePoint: {fileID: 6571005840976436832}
-  DetectionRange: 30
+  DetectionRange: 4000
   AttackRange: 8
   KnownTargetTimeout: 12
   Animator: {fileID: 0}
@@ -766,6 +764,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad90ba0b1477764da373f5ec01a8cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades: []
+  startingDelayBetweenShots: 1.3
+  startingBulletsPerShot: 1
+  startingMaxAmmo: 100
+  startingChargeTime: 1
+  startingRechargeDelay: 0.5
   WeaponName: 
   WeaponIcon: {fileID: 0}
   CrosshairDataDefault:

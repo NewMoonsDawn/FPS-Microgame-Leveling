@@ -142,6 +142,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad90ba0b1477764da373f5ec01a8cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades:
+  - {fileID: 11400000, guid: ed2fa02b3a765244e9ac51d9a96ade80, type: 2}
+  - {fileID: 11400000, guid: 12eec0ee53ac5804588127e67474141e, type: 2}
+  - {fileID: 11400000, guid: 7a1f0deb7a9ebc942b9ac6de8da51636, type: 2}
+  startingDelayBetweenShots: 0.2
+  startingBulletsPerShot: 24
+  startingMaxAmmo: 2
+  startingChargeTime: 1
+  startingRechargeDelay: 1
   WeaponName: Shotgun
   WeaponIcon: {fileID: 21300000, guid: 8cbb10368086f014a8b7fc8932e7f436, type: 3}
   CrosshairDataDefault:

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a536edcf88c55334fb411e9fa918afb9, type: 3}
+  m_Name: Armor Module(1)
+  m_EditorClassIdentifier: 
+  upgradeType: 1
+  upgradeName: Armor Module 1
+  description: Decreases damage taken by a total of 5%
+  weaponController: {fileID: 0}
+  weaponName: 
+  ammo: 0
+  fireRate: 0
+  shotCount: 0
+  rechargeDelay: 0
+  chargeSpeed: 0
+  item: {fileID: 11400000, guid: 3de3fca33a9a9dd40afe5a98c5f4a964, type: 2}

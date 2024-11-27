@@ -174,6 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad90ba0b1477764da373f5ec01a8cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades: []
+  startingDelayBetweenShots: 0.25
+  startingBulletsPerShot: 1
+  startingMaxAmmo: 16
+  startingChargeTime: 2
+  startingRechargeDelay: 1
   WeaponName: Blaster
   WeaponIcon: {fileID: 21300000, guid: 3c187e19c32c13542ba8a0c1a3a88ece, type: 3}
   CrosshairDataDefault:
@@ -190,7 +196,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 8924682559891268397, guid: 3c6b27d949cdda749892906e1f1d1b27,
     type: 3}
   DelayBetweenShots: 0.1
-  BulletSpreadAngle: 0
+  BulletSpreadAngle: 2.5
   BulletsPerShot: 1
   RecoilForce: 1
   AimZoomRatio: 0.5
@@ -203,7 +209,7 @@ MonoBehaviour:
   ShellCasingEjectionForce: 2
   ShellPoolSize: 1
   AmmoReloadRate: 16
-  AmmoReloadDelay: 1
+  AmmoReloadDelay: 0.5
   MaxAmmo: 16
   AutomaticReleaseOnCharged: 0
   MaxChargeDuration: 2

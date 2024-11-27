@@ -63,17 +63,13 @@ namespace Unity.FPS.UI
         void Update()
         {
             // Lock cursor when clicking outside of menu
-            if (!MenuRoot.activeSelf && Input.GetMouseButtonDown(0))
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
+           
 
-            if (Input.GetKeyDown(KeyCode.Escape))
+         /*   if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-            }
+            }*/
 
             if (Input.GetButtonDown(GameConstants.k_ButtonNamePauseMenu)
                 || (MenuRoot.activeSelf && Input.GetButtonDown(GameConstants.k_ButtonNameCancel)))
@@ -101,6 +97,8 @@ namespace Unity.FPS.UI
         public void ClosePauseMenu()
         {
             SetPauseMenuActivation(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
         }
 
         void SetPauseMenuActivation(bool active)

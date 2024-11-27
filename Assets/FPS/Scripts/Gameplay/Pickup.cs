@@ -1,4 +1,5 @@
-﻿using Unity.FPS.Game;
+﻿using System.Collections;
+using Unity.FPS.Game;
 using UnityEngine;
 
 namespace Unity.FPS.Gameplay
@@ -16,6 +17,8 @@ namespace Unity.FPS.Gameplay
 
         [Tooltip("Sound played on pickup")] public AudioClip PickupSfx;
         [Tooltip("VFX spawned on pickup")] public GameObject PickupVfxPrefab;
+
+        
 
         public Rigidbody PickupRigidbody { get; private set; }
 
@@ -51,10 +54,9 @@ namespace Unity.FPS.Gameplay
         void OnTriggerEnter(Collider other)
         {
             PlayerCharacterController pickingPlayer = other.GetComponent<PlayerCharacterController>();
-            
+
             if (pickingPlayer != null)
             {
-                Debug.Log(gameObject.name);
                 OnPicked(pickingPlayer);
 
                 PickupEvent evt = Events.PickupEvent;
@@ -85,5 +87,12 @@ namespace Unity.FPS.Gameplay
 
             m_HasPlayedFeedback = true;
         }
+
+      /*  public IEnumerator Despawn(float despawnTimer)
+        {
+            yield return new WaitForSeconds(despawnTimer);
+            Debug.Log(gameObject.name);
+            Destroy(gameObject);
+        }*/
     }
 }

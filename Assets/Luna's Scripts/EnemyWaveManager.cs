@@ -20,15 +20,8 @@ public class EnemyWaveManager : MonoBehaviour
         StartCoroutine(SpawnWave(1));
     }
 
-    // Update is called once per frame
-/*    void Update()
-    {
-        
-    }*/
-
     IEnumerator SpawnWave(int enemies)
     {
-        Debug.Log(enemies);
         counter++;
         if(counter % 2 == 0)
         {
@@ -38,7 +31,6 @@ public class EnemyWaveManager : MonoBehaviour
         {
             Transform spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
             Instantiate(enemyPrefab, spawnLocation.position, spawnLocation.rotation, spawnLocation);
-            Debug.Log("spawned");
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(4f + enemies);

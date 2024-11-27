@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Unity.FPS.Game;
 
 namespace Unity.FPS.Game
 {
@@ -28,6 +29,20 @@ namespace Unity.FPS.Game
     [RequireComponent(typeof(AudioSource))]
     public class WeaponController : MonoBehaviour
     {
+        public List<UpgradeData> upgrades;
+
+        [Header("Starting Attributes")]
+        [SerializeField]
+        public float startingDelayBetweenShots;
+        [SerializeField]
+        public int startingBulletsPerShot;
+        [SerializeField]
+        public int startingMaxAmmo;
+        [SerializeField]
+        public float startingChargeTime;
+        [SerializeField]
+        public float startingRechargeDelay;
+
         [Header("Information")] [Tooltip("The name that will be displayed in the UI for this weapon")]
         public string WeaponName;
 
@@ -163,6 +178,14 @@ namespace Unity.FPS.Game
 
         private Queue<Rigidbody> m_PhysicalAmmoPool;
 
+        private void Start()
+        {
+            MaxAmmo = startingMaxAmmo;
+            DelayBetweenShots = startingDelayBetweenShots;
+            BulletsPerShot = startingBulletsPerShot;
+            AmmoReloadDelay = startingRechargeDelay;
+            MaxChargeDuration = startingChargeTime;
+        }
         void Awake()
         {
             m_CurrentAmmo = MaxAmmo;
@@ -497,6 +520,35 @@ namespace Unity.FPS.Game
                 spreadAngleRatio);
 
             return spreadWorldDirection;
+        }
+
+        public void Upgrade(UpgradeData upgradeData)
+        {
+            if (MaxAmmo != 0)
+            {
+                MaxAmmo += upgradeData.ammo;
+                Debug.Log(MaxAmmo);
+            }
+            if (DelayBetweenShots != 0f)
+            {
+                DelayBetweenShots -= upgradeData.fireRate;
+                Debug.Log(DelayBetweenShots);
+            }
+            if (BulletsPerShot != 0f)
+            { 
+                BulletsPerShot += upgradeData.shotCount;
+            Debug.Log(BulletsPerShot);
+            }
+            if (AmmoReloadDelay != 0f)
+            {
+                AmmoReloadDelay -= upgradeData.rechargeDelay;
+                Debug.Log(AmmoReloadDelay);
+            }
+            if (MaxChargeDuration != 0f)
+            {
+                MaxChargeDuration -= upgradeData.chargeSpeed;
+                Debug.Log(MaxChargeDuration);
+            }
         }
     }
 }

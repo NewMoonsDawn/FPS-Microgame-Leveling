@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 6145509692674227223}
   - component: {fileID: 814417836257332542}
   - component: {fileID: 1360575517897679518}
-  - component: {fileID: 298744117520805562}
   - component: {fileID: 783424908873546082}
   - component: {fileID: 3122855503829242450}
   - component: {fileID: 6268538116984687401}
@@ -461,39 +460,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 100
   CriticalHealthRatio: 0.3
---- !u!114 &298744117520805562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7253983127304857660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6b4f98e62f1d104f8658bba08e5d56f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingWeapons:
-  - {fileID: 8323776800172828795, guid: b318fabc73446b746a1005cede0c4ceb, type: 3}
-  WeaponCamera: {fileID: 2286125971047457827}
-  WeaponParentSocket: {fileID: 3891163784698469781}
-  DefaultWeaponPosition: {fileID: 4354021110288562838}
-  AimingWeaponPosition: {fileID: 6033319682454824337}
-  DownWeaponPosition: {fileID: 2050759424792167117}
-  BobFrequency: 10
-  BobSharpness: 10
-  DefaultBobAmount: 0.05
-  AimingBobAmount: 0.02
-  RecoilSharpness: 50
-  MaxRecoilDistance: 0.2
-  RecoilRestitutionSharpness: 10
-  AimingAnimationSpeed: 14
-  DefaultFov: 60
-  WeaponFovMultiplier: 1
-  WeaponSwitchDelay: 0.2
-  FpsWeaponLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!114 &783424908873546082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,10 +736,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0793ebbb93f774cbc9633562e79ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgrades: []
   experienceToLevel: 100
   level: 0
   currentExperience: 0
   experienceIncrease: 100
+  levelPanelManager: {fileID: 0}
+  acquiredUpgrades: []
 --- !u!1 &7383874627095517793
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +865,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 806887368}
     m_Modifications:
+    - target: {fileID: 6530784527232116, guid: 7468cd18030a0204ab08baf7ac36ff1e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6226484437272429138, guid: 7468cd18030a0204ab08baf7ac36ff1e,
         type: 3}
       propertyPath: m_RootOrder
@@ -977,6 +950,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 806887368}
     m_Modifications:
+    - target: {fileID: 6530784527232116, guid: 7468cd18030a0204ab08baf7ac36ff1e, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6226484437272429138, guid: 7468cd18030a0204ab08baf7ac36ff1e,
         type: 3}
       propertyPath: m_RootOrder
